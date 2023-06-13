@@ -12,6 +12,10 @@ builder.Services.AddHttpClient<IEmployeeService, EmployeeService>(client =>
 {
     client.BaseAddress = new Uri("https://localhost:7235/");
 });
+builder.Services.AddHttpClient<IDepartmentService, DepartmentService>(client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7235/");
+});
 builder.Services.AddCors(opts =>
 opts.AddDefaultPolicy(
             policy =>

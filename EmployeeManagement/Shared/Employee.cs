@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmployeeManagement.Shared.CustomValidators;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,12 +11,13 @@ namespace EmployeeManagement.Shared
     public class Employee
     {
         public int EmployeeId { get; set; }
-        [Required]
+        [Required(ErrorMessage = "FirstName is mandatory")]
         [StringLength(100, MinimumLength = 2)]
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
         [Required]
+        [EmailDomainValidator(AllowedDomain = "pragimtech.com")]
         public string Email { get; set; }
         public DateTime DateOfBrith { get; set; }
         public Gender Gender { get; set; }

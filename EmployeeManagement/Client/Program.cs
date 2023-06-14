@@ -1,4 +1,5 @@
 using EmployeeManagement.Client;
+using EmployeeManagement.Client.Models;
 using EmployeeManagement.Client.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -16,6 +17,7 @@ builder.Services.AddHttpClient<IDepartmentService, DepartmentService>(client =>
 {
     client.BaseAddress = new Uri("https://localhost:7235/");
 });
+builder.Services.AddAutoMapper(typeof(EmployeeProfile));
 builder.Services.AddCors(opts =>
 opts.AddDefaultPolicy(
             policy =>

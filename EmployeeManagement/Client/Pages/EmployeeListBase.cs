@@ -27,5 +27,9 @@ namespace EmployeeManagement.Client.Pages
                 SelectedEmployeesCount--;
             }
         }
+        protected async Task EmployeeDeleted()
+        {
+            Employees = (await EmployeeService.GetEmployees()).ToList();
+        }
     }
 }
